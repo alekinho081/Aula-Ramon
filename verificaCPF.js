@@ -27,15 +27,7 @@ function verificaCPF(CPF){
         }else{
             digVer2 = 11 - (total2 % 11)
         }
-        digitoVerifica = digVer1.toString + digVer2.toString
-        parseInt(digitoVerifica)
-        let cpfes = cpf[9].toString + cpf[10].toString
-        parseInt(cpfes)
-        if(digitoVerifica === cpfes){
-            console.log("CPF valido")
-        }else {
-            console.log("CPF invalido")
-        }
+        
     }
     
 }
