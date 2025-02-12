@@ -24,7 +24,7 @@ function verificaCPF(CPF){
         if(digVer1 === cpf[9]){
 
             //Multiplicando e somando digitos
-            	for(i = 0; i < 9; i++){
+            	for(i = 0; i < 10; i++){
                 num2 = parseInt(cpf[i]) * (11 - i)
                 total2 += num2
             }
@@ -52,5 +52,3 @@ function verificaCPF(CPF){
 }
 
 verificaCPF(12345678910)
-verificaCPF(11111111111)
-verificaCPF(10582122902)
