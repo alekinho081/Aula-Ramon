@@ -8,7 +8,7 @@ function verificaCPF(CPF){
         let num2, total2 = 0, digVer2
 
         //Multiplicando e somando digitos
-        for(i = 0; i < 9; i++){
+        for(i = 0; i < 10; i++){
             num1 = parseInt(cpf[i]) * (10 - i)
             total1 += num1
         }
