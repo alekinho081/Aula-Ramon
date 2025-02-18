@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jogão</title>
+    
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        canvas{
+            margin-top: 20vh;
+            background-color: black;
+        }
+    </style>
     
 </head>
 <body>
-    <input type="text" id="pala">
-    <br> <br>
-    <button type="button" onclick="addElemento()">clica</button>
-    <button type="button" onclick="mostraArray()">mostra</button>
+        <canvas id="game" width="800" height="400" ></canvas>
+    
 </body>
 </html>
-<script src="array.js"></script>
+<script src="script.js"></script>
