@@ -6,19 +6,26 @@ document.addEventListener("click", (e) => {
         location.reload()
     }
 })
+document.addEventListener('keyup', (e) => {
+    if(gameover==true){
+        location.reload()
+    }else if (e.code === "ArrowUp"){personagemPula()}
+    else if (e.code === "ArrowDown") {personagemCai()}
+    
+})
 
 let gameover = false
 
-const persona = {
+const personagem = {
     posicaox: 50,
     posicaoy: canvas.height-50,
     largura: 50,
     altura: 50,
 }
 
-function desenhaPerso(){
+function desenhaPersonagem(){
     ctx.fillStyle = 'white'
-    ctx.fillRect(persona.posicaox, persona.posicaoy,persona.largura,persona.altura)
+    ctx.fillRect(personagem.posicaox, personagem.posicaoy,personagem.largura,personagem.altura)
 }
 
 const obstaculo = {
@@ -26,7 +33,7 @@ const obstaculo = {
     posy: canvas.height-100,
     tamanhox: 50,
     tamanhoy: 100,
-    vecolidade: 10
+    vecolidade: 5
 }
 
 function desenhaBloco(){
@@ -34,13 +41,25 @@ function desenhaBloco(){
     ctx.fillRect(obstaculo.posx, obstaculo.posy,obstaculo.tamanhox,obstaculo.tamanhoy)
 }
 
+function personagemPula(){
+        personagem.posicaoy -= 50
+}
+function personagemCai(){
+    personagem.posicaoy += 50
+}
+
 function atualizaObstaculo(){
     obstaculo.posx -= obstaculo.vecolidade
+    if(obstaculo.posx === -10){
+        obstaculo.posx += canvas.width+50
+    }
 }
 
 function verificaColisao(){
     if(
-        persona.posicaox < obstaculo.posx + obstaculo.tamanhox && persona.posicaox + persona.largura  > obstaculo.posx
+        personagem.posicaox < obstaculo.posx + obstaculo.tamanhox && 
+        personagem.posicaox + personagem.largura  > obstaculo.posx   &&
+        personagem.posicaoy >= obstaculo.posy
     ){
         gameOver()
     }
@@ -59,7 +78,7 @@ function gameOver (){
 
 function loop(){
     ctx.clearRect(0,0,canvas.width,canvas.height)
-    desenhaPerso()
+    desenhaPersonagem()
     desenhaBloco()
     verificaColisao()
     atualizaObstaculo()
