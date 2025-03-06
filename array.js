@@ -14,7 +14,7 @@ function mostraArray(){
 }
 
 function calculaTotal(){
-    let total = ''
+    let total = ' '
     palavras.forEach((items) => total += items)
     return(total.length)
 }
